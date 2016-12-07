@@ -408,7 +408,7 @@ h2 {
 .calendar__dates-item:not(.calendar__dates-item_other-month):hover .calendar__dates-item-circle {
   background-color: #eeeeee;
 }
-.calendar__dates-itemnot(.calendar__dates-item_other-month):active .calendar__dates-item-circle {
+.calendar__dates-item:not(.calendar__dates-item_other-month):active .calendar__dates-item-circle {
   background-color: #d4d4d4;
 }
 .calendar__dates-item-circle {
