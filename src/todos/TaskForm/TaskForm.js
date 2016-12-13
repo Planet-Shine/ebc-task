@@ -148,9 +148,9 @@ export default class TaskForm extends Component {
             let state = this.state;
             this.props.onSubmit({
                 'id'          : state.id,
-                'participant' : state.participant ,
+                'participant' : state.participant,
                 'description' : state.description,
-                'date'        : [this.state.date].map((dateItem) => {
+                'date'        : [state.date].map((dateItem) => {
                     return `${dateItem.getFullYear()}-${dateItem.getMonth()+1}-${dateItem.getDate()}`;
                 })[0]
             });

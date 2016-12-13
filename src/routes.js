@@ -21,8 +21,8 @@ export default (store) => {
                 <Route path="/" component={EmptyBlock} />
 
                 <Route component={Todos}>
-                    <Route path="/todos"              component={EmptyBlock} />
-                    <Route path="/todos/date"         component={TodoList} />
+                    <Route path="/todos"               component={EmptyBlock} />
+                    <Route path="/todos/date"          component={TodoList} />
                     <Route path="/todos/date/:date"    component={TodoList} />
                     <Route path="/todos/edit-task/:id" component={TaskForm} />
                     <Route path="/todos/create-task"   component={TaskForm} />

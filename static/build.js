@@ -86,7 +86,7 @@ var todo =
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _useStandardScroll = __webpack_require__(287);
+	var _useStandardScroll = __webpack_require__(288);
 	
 	var _useStandardScroll2 = _interopRequireDefault(_useStandardScroll);
 	
@@ -31200,15 +31200,15 @@ var todo =
 	
 	var _SidePanel3 = _interopRequireDefault(_SidePanel2);
 	
-	var _TodoList2 = __webpack_require__(282);
+	var _TodoList2 = __webpack_require__(283);
 	
 	var _TodoList3 = _interopRequireDefault(_TodoList2);
 	
-	var _Todos2 = __webpack_require__(284);
+	var _Todos2 = __webpack_require__(285);
 	
 	var _Todos3 = _interopRequireDefault(_Todos2);
 	
-	var _Calendar2 = __webpack_require__(285);
+	var _Calendar2 = __webpack_require__(286);
 	
 	var _Calendar3 = _interopRequireDefault(_Calendar2);
 	
@@ -31634,7 +31634,7 @@ var todo =
 	                    'id': state.id,
 	                    'participant': state.participant,
 	                    'description': state.description,
-	                    'date': [this.state.date].map(function (dateItem) {
+	                    'date': [state.date].map(function (dateItem) {
 	                        return dateItem.getFullYear() + '-' + (dateItem.getMonth() + 1) + '-' + dateItem.getDate();
 	                    })[0]
 	                });
@@ -32192,13 +32192,15 @@ var todo =
 	
 	var _reactRedux = __webpack_require__(204);
 	
-	var _reactRouter = __webpack_require__(213);
-	
 	var _classnames = __webpack_require__(276);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
 	var _reactRouterRedux = __webpack_require__(195);
+	
+	var _MenuItem = __webpack_require__(282);
+	
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32207,6 +32209,9 @@ var todo =
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	;
+	
 	
 	function mapStateToProps(state, ownProps) {
 	    return {
@@ -32270,39 +32275,8 @@ var todo =
 	                _react2.default.createElement(
 	                    'ul',
 	                    { className: 'menu' },
-	                    _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        _react2.default.createElement(
-	                            _reactRouter.Link,
-	                            { className: (0, _classnames2.default)({ 'menu-item': true, 'menu-item_selected': isTodoSelected }), to: '/todos/' },
-	                            _react2.default.createElement('div', { className: 'menu-item__icon menu-item__icon_list' }),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'menu-item__caption' },
-	                                'Schedule'
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'menu-item__value' },
-	                                this.props.todoCount
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        _react2.default.createElement(
-	                            _reactRouter.Link,
-	                            { className: (0, _classnames2.default)({ 'menu-item': true, 'menu-item_selected': isMyClientsSelected }), to: '/my-clients/' },
-	                            _react2.default.createElement('div', { className: 'menu-item__icon menu-item__icon_man' }),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'menu-item__caption' },
-	                                'My clients'
-	                            )
-	                        )
-	                    )
+	                    _react2.default.createElement(_MenuItem2.default, { to: '/todos/', icon: 'list', key: 0, name: 'Schedule', value: this.props.todoCount, isSelected: isTodoSelected }),
+	                    _react2.default.createElement(_MenuItem2.default, { to: '/my-clients/', icon: 'man', key: 1, name: 'My clients', isSelected: isMyClientsSelected })
 	                )
 	            );
 	        }
@@ -32314,6 +32288,76 @@ var todo =
 
 /***/ },
 /* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(276);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _reactRouter = __webpack_require__(213);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SidePanel = function (_Component) {
+	    _inherits(SidePanel, _Component);
+	
+	    function SidePanel() {
+	        _classCallCheck(this, SidePanel);
+	
+	        return _possibleConstructorReturn(this, (SidePanel.__proto__ || Object.getPrototypeOf(SidePanel)).apply(this, arguments));
+	    }
+	
+	    _createClass(SidePanel, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { className: (0, _classnames2.default)({ 'menu-item': true, 'menu-item_selected': this.props.isSelected }), to: this.props.to },
+	                    _react2.default.createElement('div', { className: 'menu-item__icon menu-item__icon_' + this.props.icon }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'menu-item__caption' },
+	                        this.props.name
+	                    ),
+	                    this.props.value !== undefined && _react2.default.createElement(
+	                        'div',
+	                        { className: 'menu-item__value' },
+	                        this.props.value
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return SidePanel;
+	}(_react.Component);
+	
+	exports.default = SidePanel;
+
+/***/ },
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32334,7 +32378,7 @@ var todo =
 	
 	var _reactRouter = __webpack_require__(213);
 	
-	var _TodoItem = __webpack_require__(283);
+	var _TodoItem = __webpack_require__(284);
 	
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 	
@@ -32466,7 +32510,7 @@ var todo =
 	exports.default = TodoList;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32575,7 +32619,7 @@ var todo =
 	exports.default = TodoItem;
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32640,7 +32684,7 @@ var todo =
 	exports.default = Todos;
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32660,7 +32704,7 @@ var todo =
 	
 	var _reactRedux = __webpack_require__(204);
 	
-	var _DateItem = __webpack_require__(286);
+	var _DateItem = __webpack_require__(287);
 	
 	var _DateItem2 = _interopRequireDefault(_DateItem);
 	
@@ -32849,7 +32893,7 @@ var todo =
 	exports.default = Calendar;
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33002,7 +33046,7 @@ var todo =
 	exports.default = DateItem;
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33025,33 +33069,33 @@ var todo =
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _domHelpersEventsOff = __webpack_require__(288);
+	var _domHelpersEventsOff = __webpack_require__(289);
 	
 	var _domHelpersEventsOff2 = _interopRequireDefault(_domHelpersEventsOff);
 	
-	var _domHelpersEventsOn = __webpack_require__(290);
+	var _domHelpersEventsOn = __webpack_require__(291);
 	
 	var _domHelpersEventsOn2 = _interopRequireDefault(_domHelpersEventsOn);
 	
-	var _domHelpersQueryScrollLeft = __webpack_require__(291);
+	var _domHelpersQueryScrollLeft = __webpack_require__(292);
 	
 	var _domHelpersQueryScrollLeft2 = _interopRequireDefault(_domHelpersQueryScrollLeft);
 	
-	var _domHelpersQueryScrollTop = __webpack_require__(293);
+	var _domHelpersQueryScrollTop = __webpack_require__(294);
 	
 	var _domHelpersQueryScrollTop2 = _interopRequireDefault(_domHelpersQueryScrollTop);
 	
-	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(294);
+	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(295);
 	
 	var _domHelpersUtilRequestAnimationFrame2 = _interopRequireDefault(_domHelpersUtilRequestAnimationFrame);
 	
 	var _historyLibDOMStateStorage = __webpack_require__(221);
 	
-	var _utilsCreateUseScroll = __webpack_require__(295);
+	var _utilsCreateUseScroll = __webpack_require__(296);
 	
 	var _utilsCreateUseScroll2 = _interopRequireDefault(_utilsCreateUseScroll);
 	
-	var _utilsSetScrollRestoration = __webpack_require__(296);
+	var _utilsSetScrollRestoration = __webpack_require__(297);
 	
 	var _utilsSetScrollRestoration2 = _interopRequireDefault(_utilsSetScrollRestoration);
 	
@@ -33155,12 +33199,12 @@ var todo =
 	module.exports = exports['default'];
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(289);
+	var canUseDOM = __webpack_require__(290);
 	var off = function off() {};
 	
 	if (canUseDOM) {
@@ -33178,7 +33222,7 @@ var todo =
 	module.exports = off;
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33186,12 +33230,12 @@ var todo =
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(289);
+	var canUseDOM = __webpack_require__(290);
 	var on = function on() {};
 	
 	if (canUseDOM) {
@@ -33208,12 +33252,12 @@ var todo =
 	module.exports = on;
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getWindow = __webpack_require__(292);
+	var getWindow = __webpack_require__(293);
 	
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -33224,7 +33268,7 @@ var todo =
 	};
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33234,12 +33278,12 @@ var todo =
 	};
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getWindow = __webpack_require__(292);
+	var getWindow = __webpack_require__(293);
 	
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -33250,12 +33294,12 @@ var todo =
 	};
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(289);
+	var canUseDOM = __webpack_require__(290);
 	
 	var vendors = ['', 'webkit', 'moz', 'o', 'ms'],
 	    cancel = 'clearTimeout',
@@ -33301,7 +33345,7 @@ var todo =
 	module.exports = compatRaf;
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33419,7 +33463,7 @@ var todo =
 	module.exports = exports["default"];
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports) {
 
 	'use strict';

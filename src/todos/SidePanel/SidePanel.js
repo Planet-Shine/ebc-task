@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { IndexLink, Link } from 'react-router';
+import { connect } from 'react-redux';;
 import classNames from 'classnames';
 import { push } from 'react-router-redux';
+import MenuItem  from './MenuItem';
 
 function mapStateToProps(state, ownProps) {
     return {
@@ -47,25 +47,8 @@ export default class SidePanel extends Component {
                     <div className="tools-item round-button round-button_out"></div>
                 </div>
                 <ul className="menu">
-                    <li>
-                        <Link className={classNames({ 'menu-item' : true, 'menu-item_selected' : isTodoSelected })} to="/todos/">
-                            <div className="menu-item__icon menu-item__icon_list"></div>
-                            <div className="menu-item__caption">
-                                Schedule
-                            </div>
-                            <div className="menu-item__value">
-                                {this.props.todoCount}
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link  className={classNames({ 'menu-item' : true, 'menu-item_selected' : isMyClientsSelected })} to="/my-clients/">
-                            <div className="menu-item__icon menu-item__icon_man"></div>
-                            <div className="menu-item__caption">
-                                My clients
-                            </div>
-                        </Link>
-                    </li>
+                    <MenuItem to="/todos/" icon={'list'} key={0} name={'Schedule'} value={this.props.todoCount} isSelected={isTodoSelected} />
+                    <MenuItem to="/my-clients/" icon={'man'}  key={1} name={'My clients'} isSelected={isMyClientsSelected} />
                 </ul>
             </div>
         )
