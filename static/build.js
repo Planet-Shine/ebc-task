@@ -86,7 +86,7 @@ var todo =
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _useStandardScroll = __webpack_require__(286);
+	var _useStandardScroll = __webpack_require__(287);
 	
 	var _useStandardScroll2 = _interopRequireDefault(_useStandardScroll);
 	
@@ -31180,35 +31180,35 @@ var todo =
 	
 	var _MyClients3 = _interopRequireDefault(_MyClients2);
 	
-	var _TaskForm2 = __webpack_require__(273);
+	var _TaskForm2 = __webpack_require__(274);
 	
 	var _TaskForm3 = _interopRequireDefault(_TaskForm2);
 	
-	var _EmptyBlock2 = __webpack_require__(277);
+	var _EmptyBlock2 = __webpack_require__(278);
 	
 	var _EmptyBlock3 = _interopRequireDefault(_EmptyBlock2);
 	
-	var _MainLayout2 = __webpack_require__(278);
+	var _MainLayout2 = __webpack_require__(279);
 	
 	var _MainLayout3 = _interopRequireDefault(_MainLayout2);
 	
-	var _NotFound2 = __webpack_require__(279);
+	var _NotFound2 = __webpack_require__(280);
 	
 	var _NotFound3 = _interopRequireDefault(_NotFound2);
 	
-	var _SidePanel2 = __webpack_require__(280);
+	var _SidePanel2 = __webpack_require__(281);
 	
 	var _SidePanel3 = _interopRequireDefault(_SidePanel2);
 	
-	var _TodoList2 = __webpack_require__(281);
+	var _TodoList2 = __webpack_require__(282);
 	
 	var _TodoList3 = _interopRequireDefault(_TodoList2);
 	
-	var _Todos2 = __webpack_require__(283);
+	var _Todos2 = __webpack_require__(284);
 	
 	var _Todos3 = _interopRequireDefault(_Todos2);
 	
-	var _Calendar2 = __webpack_require__(284);
+	var _Calendar2 = __webpack_require__(285);
 	
 	var _Calendar3 = _interopRequireDefault(_Calendar2);
 	
@@ -31298,6 +31298,10 @@ var todo =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _ClientItem = __webpack_require__(273);
+	
+	var _ClientItem2 = _interopRequireDefault(_ClientItem);
+	
 	var _reactRedux = __webpack_require__(204);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31330,20 +31334,16 @@ var todo =
 	                nodes = [],
 	                currentLetter;
 	            clients = clients.sort();
-	            clients.forEach(function (client) {
+	            clients.forEach(function (client, index) {
 	                if (currentLetter !== client[0]) {
 	                    currentLetter = client[0];
 	                    nodes.push(_react2.default.createElement(
 	                        'h3',
-	                        { className: 'letter-header' },
+	                        { key: 'h' + index, className: 'letter-header' },
 	                        currentLetter
 	                    ));
 	                }
-	                nodes.push(_react2.default.createElement(
-	                    'li',
-	                    { className: 'alphabetical-list__item' },
-	                    client
-	                ));
+	                nodes.push(_react2.default.createElement(_ClientItem2.default, { key: index, name: client }));
 	            });
 	
 	            return _react2.default.createElement(
@@ -31373,6 +31373,56 @@ var todo =
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ClientItem = function (_Component) {
+	    _inherits(ClientItem, _Component);
+	
+	    function ClientItem() {
+	        _classCallCheck(this, ClientItem);
+	
+	        return _possibleConstructorReturn(this, (ClientItem.__proto__ || Object.getPrototypeOf(ClientItem)).apply(this, arguments));
+	    }
+	
+	    _createClass(ClientItem, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "li",
+	                { className: "alphabetical-list__item" },
+	                this.props.name
+	            );
+	        }
+	    }]);
+	
+	    return ClientItem;
+	}(_react.Component);
+	
+	exports.default = ClientItem;
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -31392,11 +31442,11 @@ var todo =
 	
 	var _reactRouter = __webpack_require__(213);
 	
-	var _ClientsAutocomplete = __webpack_require__(274);
+	var _ClientsAutocomplete = __webpack_require__(275);
 	
 	var _ClientsAutocomplete2 = _interopRequireDefault(_ClientsAutocomplete);
 	
-	var _classnames = __webpack_require__(275);
+	var _classnames = __webpack_require__(276);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -31706,7 +31756,7 @@ var todo =
 	exports.default = TaskForm;
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31728,7 +31778,7 @@ var todo =
 	
 	var _reactRouter = __webpack_require__(213);
 	
-	var _classnames = __webpack_require__(275);
+	var _classnames = __webpack_require__(276);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -31892,7 +31942,7 @@ var todo =
 	exports.default = ClientsAutocomplete;
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -31938,7 +31988,7 @@ var todo =
 	
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(276)) === 'object' && __webpack_require__(276)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(277)) === 'object' && __webpack_require__(277)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -31949,7 +31999,7 @@ var todo =
 	})();
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -31957,7 +32007,7 @@ var todo =
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32007,7 +32057,7 @@ var todo =
 	exports.default = EmptyBlock;
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32064,7 +32114,7 @@ var todo =
 	exports.default = MainLayout;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32122,7 +32172,7 @@ var todo =
 	exports.default = NotFound;
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32144,7 +32194,7 @@ var todo =
 	
 	var _reactRouter = __webpack_require__(213);
 	
-	var _classnames = __webpack_require__(275);
+	var _classnames = __webpack_require__(276);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -32263,7 +32313,7 @@ var todo =
 	exports.default = SidePanel;
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32284,7 +32334,7 @@ var todo =
 	
 	var _reactRouter = __webpack_require__(213);
 	
-	var _TodoItem = __webpack_require__(282);
+	var _TodoItem = __webpack_require__(283);
 	
 	var _TodoItem2 = _interopRequireDefault(_TodoItem);
 	
@@ -32416,7 +32466,7 @@ var todo =
 	exports.default = TodoList;
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32525,7 +32575,7 @@ var todo =
 	exports.default = TodoItem;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32590,7 +32640,7 @@ var todo =
 	exports.default = Todos;
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32610,7 +32660,7 @@ var todo =
 	
 	var _reactRedux = __webpack_require__(204);
 	
-	var _DateItem = __webpack_require__(285);
+	var _DateItem = __webpack_require__(286);
 	
 	var _DateItem2 = _interopRequireDefault(_DateItem);
 	
@@ -32799,7 +32849,7 @@ var todo =
 	exports.default = Calendar;
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32824,7 +32874,7 @@ var todo =
 	
 	var _reactRouterRedux = __webpack_require__(195);
 	
-	var _classnames = __webpack_require__(275);
+	var _classnames = __webpack_require__(276);
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
@@ -32952,7 +33002,7 @@ var todo =
 	exports.default = DateItem;
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32975,33 +33025,33 @@ var todo =
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 	
-	var _domHelpersEventsOff = __webpack_require__(287);
+	var _domHelpersEventsOff = __webpack_require__(288);
 	
 	var _domHelpersEventsOff2 = _interopRequireDefault(_domHelpersEventsOff);
 	
-	var _domHelpersEventsOn = __webpack_require__(289);
+	var _domHelpersEventsOn = __webpack_require__(290);
 	
 	var _domHelpersEventsOn2 = _interopRequireDefault(_domHelpersEventsOn);
 	
-	var _domHelpersQueryScrollLeft = __webpack_require__(290);
+	var _domHelpersQueryScrollLeft = __webpack_require__(291);
 	
 	var _domHelpersQueryScrollLeft2 = _interopRequireDefault(_domHelpersQueryScrollLeft);
 	
-	var _domHelpersQueryScrollTop = __webpack_require__(292);
+	var _domHelpersQueryScrollTop = __webpack_require__(293);
 	
 	var _domHelpersQueryScrollTop2 = _interopRequireDefault(_domHelpersQueryScrollTop);
 	
-	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(293);
+	var _domHelpersUtilRequestAnimationFrame = __webpack_require__(294);
 	
 	var _domHelpersUtilRequestAnimationFrame2 = _interopRequireDefault(_domHelpersUtilRequestAnimationFrame);
 	
 	var _historyLibDOMStateStorage = __webpack_require__(221);
 	
-	var _utilsCreateUseScroll = __webpack_require__(294);
+	var _utilsCreateUseScroll = __webpack_require__(295);
 	
 	var _utilsCreateUseScroll2 = _interopRequireDefault(_utilsCreateUseScroll);
 	
-	var _utilsSetScrollRestoration = __webpack_require__(295);
+	var _utilsSetScrollRestoration = __webpack_require__(296);
 	
 	var _utilsSetScrollRestoration2 = _interopRequireDefault(_utilsSetScrollRestoration);
 	
@@ -33105,12 +33155,12 @@ var todo =
 	module.exports = exports['default'];
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(288);
+	var canUseDOM = __webpack_require__(289);
 	var off = function off() {};
 	
 	if (canUseDOM) {
@@ -33128,7 +33178,7 @@ var todo =
 	module.exports = off;
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33136,12 +33186,12 @@ var todo =
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(288);
+	var canUseDOM = __webpack_require__(289);
 	var on = function on() {};
 	
 	if (canUseDOM) {
@@ -33158,12 +33208,12 @@ var todo =
 	module.exports = on;
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getWindow = __webpack_require__(291);
+	var getWindow = __webpack_require__(292);
 	
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -33174,7 +33224,7 @@ var todo =
 	};
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33184,12 +33234,12 @@ var todo =
 	};
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getWindow = __webpack_require__(291);
+	var getWindow = __webpack_require__(292);
 	
 	module.exports = function scrollTop(node, val) {
 	  var win = getWindow(node);
@@ -33200,12 +33250,12 @@ var todo =
 	};
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var canUseDOM = __webpack_require__(288);
+	var canUseDOM = __webpack_require__(289);
 	
 	var vendors = ['', 'webkit', 'moz', 'o', 'ms'],
 	    cancel = 'clearTimeout',
@@ -33251,7 +33301,7 @@ var todo =
 	module.exports = compatRaf;
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33369,7 +33419,7 @@ var todo =
 	module.exports = exports["default"];
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports) {
 
 	'use strict';

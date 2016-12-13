@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ClientItem from './ClientItem';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -21,12 +22,12 @@ export default class MyClients extends Component {
             nodes = [],
             currentLetter;
         clients = clients.sort();
-        clients.forEach(function (client) {
+        clients.forEach(function (client, index) {
             if (currentLetter !== client[0]) {
                 currentLetter = client[0];
-                nodes.push(<h3 className="letter-header">{currentLetter}</h3>);
+                nodes.push(<h3 key={ 'h' + index } className="letter-header">{currentLetter}</h3>);
             }
-            nodes.push(<li className="alphabetical-list__item">{client}</li>);
+            nodes.push(<ClientItem key={index} name={client} />);
         });
 
         return (
