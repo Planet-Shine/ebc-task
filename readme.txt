@@ -1,7 +1,7 @@
 
 Как смотреть результат.
 
-webpack, npm, nodejs должены быть установлены.
+webpack, npm, nodejs должны быть установлены.
 
 Клонировать репо https://github.com/PavelOfficial/ebc-task.git.
 Выполнить в терминале: npm install.
