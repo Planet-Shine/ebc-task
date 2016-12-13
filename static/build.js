@@ -32769,9 +32769,9 @@ var todo =
 	                monthNumber = month.getMonth();
 	                year = month.getFullYear();
 	                dates = this.getMonthDates(month);
-	                nodes = dates.map(function (date) {
+	                nodes = dates.map(function (date, index) {
 	                    var isOtherMonth = date.getMonth() !== month.getMonth();
-	                    return _react2.default.createElement(_DateItem2.default, { date: date, isOtherMonth: isOtherMonth });
+	                    return _react2.default.createElement(_DateItem2.default, { key: index, date: date, isOtherMonth: isOtherMonth });
 	                });
 	            }
 	

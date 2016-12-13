@@ -17,7 +17,7 @@ export default class MyClients extends Component {
         clients: PropTypes.array
     };
 
-    render() {
+        render() {
         var clients = this.props.clients,
             nodes = [],
             currentLetter;

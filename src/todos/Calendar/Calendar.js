@@ -80,10 +80,10 @@ export default class Calendar extends Component {
             monthNumber = month.getMonth();
             year = month.getFullYear();
             dates = this.getMonthDates(month);
-            nodes = dates.map(function (date) {
+            nodes = dates.map(function (date, index) {
                 var isOtherMonth = date.getMonth() !== month.getMonth();
                 return (
-                    <DateItem date={date} isOtherMonth={isOtherMonth} />
+                    <DateItem key={index} date={date} isOtherMonth={isOtherMonth} />
                 );
             });
         }
