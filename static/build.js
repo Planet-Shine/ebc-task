@@ -32223,12 +32223,48 @@ var todo =
 	    _inherits(SidePanel, _Component);
 	
 	    function SidePanel() {
+	        var _ref;
+	
+	        var _temp, _this, _ret;
+	
 	        _classCallCheck(this, SidePanel);
 	
-	        return _possibleConstructorReturn(this, (SidePanel.__proto__ || Object.getPrototypeOf(SidePanel)).apply(this, arguments));
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SidePanel.__proto__ || Object.getPrototypeOf(SidePanel)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+	            list: [{
+	                id: 0,
+	                to: '/todos/',
+	                icon: 'list',
+	                name: 'Schedule'
+	            }, {
+	                id: 1,
+	                to: '/my-clients/',
+	                icon: 'man',
+	                name: 'My clients'
+	            }]
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 	
 	    _createClass(SidePanel, [{
+	        key: 'setCountOfTodos',
+	        value: function setCountOfTodos(props) {
+	            var item = this.state.list.find(function (item) {
+	                return item.name === 'Schedule';
+	            });
+	            item.value = props.todoCount;
+	            this.setState({
+	                'list': this.state.list
+	            });
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(newProps) {
+	            this.setCountOfTodos(newProps);
+	        }
+	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            window.removeEventListener('popstate', this.onWindowPopState);
@@ -32236,9 +32272,8 @@ var todo =
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	
+	            this.setCountOfTodos(this.props);
 	            this.onWindowPopState = this.onWindowPopState.bind(this);
-	
 	            window.addEventListener('popstate', this.onWindowPopState);
 	        }
 	    }, {
@@ -32250,10 +32285,16 @@ var todo =
 	        key: 'render',
 	        value: function render() {
 	            var pathname = location.pathname,
-	                isTodoSelected = /^\/todos\//.test(pathname),
-	                isMyClientsSelected = /^\/my-clients\//.test(pathname);
+	                nodes = this.state.list.map(function (item) {
+	                var testUrlRegExp = new RegExp("^" + item.to);
+	                return _react2.default.createElement(_MenuItem2.default, { to: item.to,
+	                    name: item.name,
+	                    icon: item.icon,
+	                    key: item.id,
+	                    isSelected: testUrlRegExp.test(pathname),
+	                    value: item.value });
+	            });
 	
-	            // location.pathname
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'side-panel' },
@@ -32275,8 +32316,7 @@ var todo =
 	                _react2.default.createElement(
 	                    'ul',
 	                    { className: 'menu' },
-	                    _react2.default.createElement(_MenuItem2.default, { to: '/todos/', icon: 'list', key: 0, name: 'Schedule', value: this.props.todoCount, isSelected: isTodoSelected }),
-	                    _react2.default.createElement(_MenuItem2.default, { to: '/my-clients/', icon: 'man', key: 1, name: 'My clients', isSelected: isMyClientsSelected })
+	                    nodes
 	                )
 	            );
 	        }
