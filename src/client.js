@@ -1,3 +1,5 @@
+require('./styl/styles.less');
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';

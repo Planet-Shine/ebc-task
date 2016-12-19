@@ -8,7 +8,7 @@ var assetsPath = path.resolve(__dirname, '../public/dist');
 
 
 //var CleanPlugin = require('clean-webpack-plugin');
-//var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool      : 'source-map',
@@ -39,6 +39,10 @@ module.exports = {
                     // "transform-react-display-name"
                 ]
             }
+        },
+        {
+            test: /\.less$/,
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         }]
     },
     progress: true,
@@ -50,6 +54,7 @@ module.exports = {
         extensions: ['', '.json', '.js', '.jsx']
     },
     plugins: [
+        new ExtractTextPlugin('./static/styles.css')
         /*
         new CleanPlugin([assetsPath], { root: projectRootPath }),
 
