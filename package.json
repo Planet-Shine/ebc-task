@@ -29,8 +29,7 @@
     "scroll-behavior": "^0.3.2"
   },
   "scripts": {
-    "start": "node ./src/server.js",
-    "styles": "lessc ./src/styl/styles.less ./static/styles.css"
+    "start": "node ./src/server.js"
   },
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.0",
